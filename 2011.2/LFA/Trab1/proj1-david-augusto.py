@@ -7,13 +7,13 @@ from re import *
 quantia = r"^R\$([1-9]\d*|0)(,\d\d)?$"
 bissexto = r"^(19\d(0|2|6)|20\d(4|8))$"
 dna = r"^(A|C|T|G)+$"
-comentario = r"^/\*(\*[^/]|[^*]|\*)*\*/$"
-gene = r"^(ATG|GTG|TTG)((A|G|T|C){3})*$"
+comentario = r"^/\*([^*]*\*+[^/\*]+)*[^*]*\*+/$"
+gene = r"^(ATG|GTG|TTG)((A|C|G)(A|C|T|G){2}|T(T|C)(A|G|T|C)|(TA(C|T)|TG(C|T|G)))*(TGA|TAA|TAG)$"
 
 # Ate aqui. Nao mude nada daqui para baixo!
 
 while True:
-  s = raw_input()
+  s = input()
   print(s)
   if search(quantia, s):
     print("Quantia em reais")
